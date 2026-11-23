@@ -1,17 +1,46 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
-  title: "Noor Ahmad | Full Stack MERN & .NET Core Developer",
-  description: "Portfolio of Noor Ahmad - Backend & Full Stack Developer specializing in Next.js, React, NestJS, Node.js, PostgreSQL, MongoDB, and .NET Core.",
-  keywords: ["Noor Ahmad", "Full Stack Developer", "MERN Developer", "NestJS", "Next.js", ".NET Core", "Software Engineer", "Portfolio"],
+  title: "Noor Ahmad — Full Stack Engineer & AI Systems Builder",
+  description:
+    "Personal engineering portfolio of Noor Ahmad — Full Stack Engineer (FAST NUCES Islamabad) specializing in React, Next.js, Node.js, NestJS, Fastify, PostgreSQL, Redis, and LLM/RAG systems.",
+  keywords: [
+    "Noor Ahmad",
+    "Full Stack Engineer",
+    "Software Engineer",
+    "NestJS",
+    "Next.js",
+    "React",
+    "Node.js",
+    "Fastify",
+    "PostgreSQL",
+    "pgvector",
+    "RAG",
+    "LangChain",
+    "FAST NUCES Islamabad",
+  ],
   authors: [{ name: "Noor Ahmad" }],
   openGraph: {
-    title: "Noor Ahmad | Full Stack Developer",
-    description: "Full Stack Developer (MERN & .NET Core) specializing in scalable web apps, NestJS, Next.js, and APIs.",
+    title: "Noor Ahmad — Full Stack Engineer",
+    description:
+      "Full Stack Engineer building production web apps, high-throughput Node/NestJS/Fastify backends, and AI-enabled RAG workflows.",
     type: "website",
   },
 };
@@ -22,8 +51,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className={`${inter.className} bg-[#0B0F17] text-slate-100 antialiased`}>
+    <html
+      lang="en"
+      className={`dark scroll-smooth ${jakarta.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="font-sans bg-[#09090b] text-zinc-100 antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
         {children}
       </body>
     </html>

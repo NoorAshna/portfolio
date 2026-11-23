@@ -7,7 +7,12 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-[#0B0F17] text-slate-100 antialiased selection:bg-brand-500 selection:text-white;
+    @apply bg-[#09090b] text-zinc-100 antialiased;
+    background-image: 
+      radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      radial-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
   }
 }
 
@@ -16,34 +21,34 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B0F17;
+  background: #09090b;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1F2937;
+  background: #27272a;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #374151;
+  background: #3f3f46;
 }
 
-/* Glassmorphism helpers */
-.glass-panel {
-  background: rgba(17, 24, 39, 0.7);
+/* Crafted Engineer Card Surfaces */
+.craft-card {
+  background: linear-gradient(180deg, rgba(24, 24, 29, 0.85) 0%, rgba(16, 16, 20, 0.92) 100%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.05) inset, 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.glass-card {
-  background: rgba(17, 24, 39, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.craft-card:hover {
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 1px 0 0 rgba(16, 185, 129, 0.15) inset, 0 24px 48px -12px rgba(0, 0, 0, 0.75);
 }
 
-.glass-card:hover {
-  border-color: rgba(56, 189, 248, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px -10px rgba(12, 148, 232, 0.15);
+.blueprint-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }

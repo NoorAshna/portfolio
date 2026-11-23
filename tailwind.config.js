@@ -9,44 +9,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50: '#f0f7ff',
-          100: '#e0effe',
-          200: '#bae0fd',
-          300: '#7cc8fc',
-          400: '#36aff7',
-          500: '#0c94e8',
-          600: '#0076c7',
-          700: '#025ea2',
-          800: '#065086',
-          900: '#0b436f',
-          950: '#072b4a',
+        canvas: {
+          DEFAULT: '#09090b',
+          elevated: '#111115',
+          card: '#141419',
+          border: '#23232b',
         },
-        dark: {
-          bg: '#0B0F17',
-          card: '#111827',
-          border: '#1F2937',
-          text: '#F9FAFB',
-          muted: '#9CA3AF'
+        accent: {
+          emerald: '#10b981',
+          amber: '#f59e0b',
+          violet: '#8b5cf6',
+          cyan: '#06b6d4',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['var(--font-jakarta)', 'sans-serif'],
+        display: ['var(--font-space)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
       },
       animation: {
-        'gradient': 'gradient 8s linear infinite',
-      },
-      keyframes: {
-        gradient: {
-          '0%, 100%': {
-            'background-size': '200% 200%',
-            'background-position': 'left center',
-          },
-          '50%': {
-            'background-size': '200% 200%',
-            'background-position': 'right center',
-          },
-        },
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },

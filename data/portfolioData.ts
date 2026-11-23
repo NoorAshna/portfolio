@@ -1,253 +1,385 @@
+export interface ArchitectureNode {
+  label: string;
+  sublabel?: string;
+  accent?: 'emerald' | 'amber' | 'violet' | 'cyan' | 'rose';
+}
+
 export interface Project {
   id: string;
+  index: string;
   title: string;
-  subtitle: string;
-  category: 'Full Stack' | 'Backend' | 'AI / NLP' | 'Web';
-  period?: string;
+  tagline: string;
+  affiliation?: string;
+  category: 'AI & RAG' | 'Backend & Telephony' | 'Full Stack';
   tech: string[];
-  description: string;
+  summary: string;
   highlights: string[];
+  architecture: ArchitectureNode[];
+  metrics?: { label: string; value: string }[];
   github?: string;
   live?: string;
+  liveLabel?: string;
   featured?: boolean;
 }
 
 export interface Experience {
   id: string;
+  commitHash: string;
   role: string;
   company: string;
   period: string;
-  location?: string;
+  type: string;
+  summary: string;
   highlights: string[];
   skills: string[];
 }
 
 export interface SkillCategory {
+  id: string;
   category: string;
-  items: { name: string; icon?: string; level?: string }[];
+  code: string;
+  description: string;
+  items: {
+    name: string;
+    usedIn: string[];
+  }[];
 }
 
 export const PERSONAL_INFO = {
   name: "Noor Ahmad",
-  title: "Full Stack MERN & .NET Core Developer",
+  handle: "noor.ahmad",
+  role: "Full Stack Engineer",
+  headline: "Full Stack Engineer crafting high-throughput backends, modern React/Next.js apps & AI-enabled RAG systems.",
   email: "noorashna121@gmail.com",
-  phone: "+92 331 2826716",
+  phone: "+923312826716",
+  phoneFormatted: "+92 331 2826716",
   location: "Islamabad / Lahore, Pakistan",
+  timezone: "PKT (UTC+5)",
+  degree: "BS Software Engineering — FAST NUCES Islamabad",
+  experienceYears: "3+ Years",
   github: "https://github.com/NoorAshna",
+  githubHandle: "github.com/NoorAshna",
   linkedin: "https://linkedin.com/in/noor-ahmed-b788a818a",
-  bio: "Full Stack Developer (MERN & .NET Core) with strong experience building scalable, responsive, and high-performing web applications. Skilled in Next.js, React, Node.js, NestJS, Express.js, PostgreSQL, MongoDB, and modern DevOps/API integration.",
+  linkedinHandle: "linkedin.com/in/noor-ahmed-b788a818a",
+  bio: "Full Stack Engineer and Software Engineering graduate from FAST Islamabad with 3+ years of experience. I have experience in building and improving production web applications across React/Next.js, Node.js, NestJS, Express/Fastify. Hands-on with AI-enabled products, including LLM-powered document Q&A, retrieval-augmented generation (RAG), semantic search, and NLP workflows. Comfortable owning features across API design, data modeling, integrations, performance optimization, and CI/CD, with a focus on maintainable code and practical product outcomes.",
+  shortBio: "FAST Islamabad Software Engineering graduate with 3+ years shipping production systems across React/Next.js, Node.js, NestJS, and Fastify — from telephony & payment architectures to LLM-powered RAG pipelines with pgvector.",
+  status: "Available for Full Stack & Backend roles",
 };
 
 export const EXPERIENCES: Experience[] = [
   {
-    id: "veeivs",
-    role: "Backend Developer (Node.js / NestJS)",
-    company: "Veeivs",
-    period: "December 2025 – Present",
+    id: "mars-digital",
+    commitHash: "e8a4f21",
+    role: "Full Stack Developer",
+    company: "Mars (Digital) BPO SMC Pvt Ltd",
+    period: "December 2025 – August 2026",
+    type: "Production Systems & Telephony",
+    summary: "Core engineer on CallLoom and full-stack microservices across Node.js, NestJS, Fastify, React, and PostgreSQL.",
     highlights: [
-      "Building and maintaining scalable microservices with Node.js, NestJS, and Fastify for high-performance API layers.",
-      "Implemented Stripe integration for automated payment processing, recurring subscriptions, webhooks, and complex transaction workflows.",
-      "Introduced Redis caching and session management, significantly reducing database load and boosting response speeds.",
-      "Optimized endpoint performance and increased API throughput to handle high concurrent traffic seamlessly.",
-      "Designed relational schemas in PostgreSQL utilizing Sequelize and TypeORM across distributed services.",
-      "Maintained automated CI/CD pipelines for continuous testing, build generation, and production deployment."
+      "Build and maintain full-stack applications and backend services using Node.js, NestJS, Fastify, React, and PostgreSQL.",
+      "Contribute to CallLoom, a call-tracking platform, improving backend APIs, data modeling, and performance for call-related workflows.",
+      "Integrate third-party services including Telnyx, Twilio, and Stripe, supporting telephony workflows, subscriptions, webhooks, and payment processing.",
+      "Improve API response times and throughput through endpoint/query optimization and Redis caching and session management.",
+      "Design relational data models with PostgreSQL and use Sequelize/TypeORM for data access across services.",
+      "Maintain CI/CD pipelines for automated testing, builds, and deployments."
     ],
-    skills: ["NestJS", "Node.js", "Fastify", "Stripe API", "Redis", "PostgreSQL", "TypeORM", "Sequelize", "CI/CD"]
+    skills: ["Node.js", "NestJS", "Fastify", "React", "PostgreSQL", "Redis", "Telnyx", "Twilio", "Stripe API", "Sequelize", "TypeORM", "CI/CD"]
   },
   {
     id: "techflo",
+    commitHash: "b39c10d",
     role: "Full Stack Developer",
     company: "TechFlo",
     period: "June 2024 – November 2025",
+    type: "Full Stack Product Engineering",
+    summary: "Engineered scalable MERN & PostgreSQL web platforms within a 6-person Agile engineering team.",
     highlights: [
-      "Developed and maintained 3+ scalable MERN applications resulting in ~30% improved application performance.",
-      "Built end-to-end full-stack solutions integrating React frontends with Node.js microservices and MongoDB storage.",
-      "Contributed to .NET Core APIs and enterprise relational database architectures for multi-stack client projects.",
-      "Collaborated in an Agile team of 6 developers, taking part in sprint planning, daily stand-ups, and conducting 10+ code reviews."
+      "Developed and maintained 3+ scalable MERN applications, contributing to approximately 30% performance improvement.",
+      "Built full-stack features integrating React interfaces, Node.js APIs, and PostgreSQL-backed data workflows.",
+      "Developed and maintained REST APIs and database integrations across multi-stack product work, emphasizing reliable data handling and maintainable services.",
+      "Collaborated in a six-person Agile team through sprint planning, stand-ups, code reviews, and GitHub-based workflows."
     ],
-    skills: ["React.js", "Node.js", "Express.js", "MongoDB", ".NET Core", "Agile/Scrum", "Git"]
+    skills: ["React", "Node.js", "Express.js", "PostgreSQL", "MongoDB", "Sequelize", "REST APIs", "Git/GitHub"]
   },
   {
     id: "freelance",
+    commitHash: "7f12a98",
     role: "Freelance Software Developer",
-    company: "Self-Employed",
+    company: "Independent / Client Projects",
     period: "January 2023 – May 2024",
+    type: "Client Delivery & Systems Design",
+    summary: "Delivered 5+ end-to-end client software products spanning full-stack web apps and Java/JavaFX desktop applications.",
     highlights: [
-      "Delivered 5+ custom client projects utilizing Java, JavaFX (desktop applications), and .NET web applications.",
-      "Developed object-oriented desktop games and software applications using Java and JavaFX.",
-      "Built robust .NET Core web apps with SQL Server & PostgreSQL database integrations, ensuring high availability.",
-      "Communicated directly with international clients for requirements engineering, sprint updates, and achieved 100% satisfaction."
+      "Delivered 5+ client projects using JavaScript/MERN technologies and Java/JavaFX, tailoring features to product requirements.",
+      "Built desktop games and object-oriented applications in Java/JavaFX, strengthening software design and problem-solving skills.",
+      "Developed web application features and backend integrations using Node.js and PostgreSQL, with a focus on scalable data access and reliable functionality."
     ],
-    skills: ["Java", "JavaFX", ".NET Core", "SQL Server", "PostgreSQL", "OOP", "Client Management"]
+    skills: ["JavaScript", "Node.js", "React", "PostgreSQL", "MongoDB", "Java", "JavaFX"]
   }
 ];
 
 export const PROJECTS: Project[] = [
   {
-    id: "movd",
-    title: "MOVD – Logistics & Shipment Platform",
-    subtitle: "Enterprise Shipment Management",
-    category: "Full Stack",
-    tech: ["Next.js", "React", ".NET Core", "Tailwind CSS", "REST APIs"],
-    description: "Contributed to GetMovd (getmovd.com), a comprehensive logistics and shipment management platform for managing complex shipping workflows.",
+    id: "callloom",
+    index: "01",
+    title: "CallLoom",
+    tagline: "Call Tracking Software & AI Call Intelligence",
+    affiliation: "Veeivs / Mars Digital",
+    category: "Backend & Telephony",
+    tech: ["Node.js", "NestJS", "Fastify", "PostgreSQL", "Telnyx", "Twilio", "Redis", "AI Integration"],
+    summary: "High-concurrency call-tracking platform integrating inbound telephony carriers, Redis-cached endpoints, and AI-powered call analysis for transcript summaries and lead-quality intelligence.",
     highlights: [
-      "Built key React/Next.js frontend modules including shipment filtering, merge shipment workflows, and interactive dashboards.",
-      "Integrated .NET Core backend APIs for shipments, company profiles, POC assignments, and real-time status updates.",
-      "Implemented date-range filtering, company dynamic filters, and status enum logic for enterprise users."
+      "Build and improve backend services and REST APIs for a call-tracking platform, with attention to performance and concurrent usage.",
+      "Integrate telephony services including Telnyx and Twilio for inbound-call and related communication workflows.",
+      "Optimize endpoint logic, PostgreSQL queries, and frequently accessed data using Redis caching.",
+      "AI integration: connect AI-powered call analysis to call workflows to support transcript-based summaries, lead-quality insights, and searchable call intelligence.",
+      "Maintain relational data models and CI/CD pipelines for automated testing, builds, and deployments."
     ],
-    live: "https://getmovd.com",
+    architecture: [
+      { label: "Telnyx & Twilio", sublabel: "Inbound Call Webhooks", accent: "amber" },
+      { label: "NestJS / Fastify", sublabel: "High-Throughput API", accent: "emerald" },
+      { label: "Redis + PostgreSQL", sublabel: "Cache & Relational Store", accent: "cyan" },
+      { label: "AI Call Engine", sublabel: "Transcripts & Lead Insights", accent: "violet" }
+    ],
+    metrics: [
+      { label: "Telephony Carriers", value: "Telnyx + Twilio" },
+      { label: "AI Capabilities", value: "Transcript & Lead QA" },
+      { label: "Data & Cache", value: "PostgreSQL + Redis" }
+    ],
     featured: true
   },
   {
-    id: "accounts-system",
-    title: "Accounts Management System",
-    subtitle: "Internal Enterprise Finance Portal",
-    category: "Backend",
-    tech: [".NET Core (MVC/API)", "SQL Server", "C#", "Role-Based Auth"],
-    description: "Complete internal accounts management software built with .NET Core and SQL Server to digitize company financial operations.",
+    id: "docmind",
+    index: "02",
+    title: "DocMind",
+    tagline: "AI-Powered PDF Q&A & Semantic RAG Pipeline",
+    affiliation: "AI Product Engineering",
+    category: "AI & RAG",
+    tech: ["React", "Node.js", "Express.js", "LangChain", "Google Gemini", "PostgreSQL", "pgvector", "Redis", "BullMQ"],
+    summary: "End-to-end Retrieval-Augmented Generation (RAG) application with asynchronous BullMQ ingestion workers, 768-dimensional Gemini vector embeddings in pgvector, and citation-backed answers.",
     highlights: [
-      "Modules for expense management, vendor payouts, staff salaries, invoice generation, and transaction history.",
-      "Implemented role-based access control (RBAC), secure authentication, and fine-grained permissions.",
-      "Automated financial calculations (balances, salary breakdowns, net totals) with search and pagination."
+      "Built a React frontend and REST API for PDF upload and document management, with asynchronous ingestion using Redis/BullMQ workers, retry handling, and status tracking.",
+      "Implemented a RAG pipeline using PDF extraction and chunking, storing 768-dimensional Gemini embeddings in PostgreSQL with pgvector.",
+      "Enabled semantic search to retrieve relevant passages and generate context-grounded answers with Google Gemini, including source snippets."
+    ],
+    architecture: [
+      { label: "React + REST API", sublabel: "PDF Upload & Status", accent: "cyan" },
+      { label: "Redis / BullMQ", sublabel: "Async Worker & Retries", accent: "amber" },
+      { label: "LangChain + Gemini", sublabel: "Chunking & 768-d Vectors", accent: "violet" },
+      { label: "pgvector Search", sublabel: "Grounded Q&A + Citations", accent: "emerald" }
+    ],
+    metrics: [
+      { label: "Embedding Dim", value: "768-d Gemini" },
+      { label: "Vector Store", value: "PG + pgvector" },
+      { label: "Ingestion Queue", value: "BullMQ + Redis" }
     ],
     featured: true
   },
   {
     id: "cognizdraw",
-    title: "CognizDraw – AI UML Generator",
-    subtitle: "Final Year Degree Project",
-    category: "AI / NLP",
-    tech: ["MERN", "Python", "SpaCy", "Transformers", "React", "MongoDB"],
-    description: "An NLP-powered tool that automatically translates plain natural language descriptions into precise UML diagrams (Class, Sequence, Use Case, ERD).",
+    index: "03",
+    title: "CognizDraw",
+    tagline: "NLP & Fine-Tuned GPT-2 UML Diagram Generator",
+    affiliation: "Final Year Project — FAST NUCES",
+    category: "AI & RAG",
+    tech: ["Python", "React", "MongoDB", "Node.js", "spaCy", "Transformers"],
+    summary: "NLP-driven software design tool that parses natural-language system requirements and leverages a fine-tuned GPT-2 model to automate Class, Sequence, Use-Case, and ER diagram generation.",
     highlights: [
-      "Used SpaCy & Hugging Face Transformers for natural language syntax parsing and entity extraction.",
-      "Reduced manual UML diagram creation effort by approximately 80% for software engineers.",
-      "Designed clean interactive canvas preview for generated diagrams."
+      "Built an NLP-based tool to simplify creation of class, sequence, use-case, and ER diagrams.",
+      "Fine-tuned the GPT-2 language model using Hugging Face Transformers to generate UML diagrams from natural-language descriptions, automating diagram generation.",
+      "Implemented natural-language parsing to generate UML diagrams, reducing manual diagram creation time by approximately 80%."
     ],
+    architecture: [
+      { label: "Natural Language", sublabel: "Requirement Specs", accent: "cyan" },
+      { label: "spaCy NLP Parser", sublabel: "Entity & Relation Extraction", accent: "amber" },
+      { label: "Fine-Tuned GPT-2", sublabel: "Hugging Face Transformers", accent: "violet" },
+      { label: "React Canvas", sublabel: "Class / Seq / Use-Case / ER", accent: "emerald" }
+    ],
+    metrics: [
+      { label: "Time Saved", value: "~80% Faster" },
+      { label: "Diagram Types", value: "4 UML Formats" },
+      { label: "NLP Engine", value: "GPT-2 + spaCy" }
+    ],
+    featured: true
+  },
+  {
+    id: "movd",
+    index: "04",
+    title: "MOVD",
+    tagline: "Logistics & Shipment Management Platform",
+    affiliation: "TechFlo",
+    category: "Full Stack",
+    tech: ["React", "Node.js", "Express.js", "PostgreSQL", "Sequelize", "Tailwind", "REST APIs"],
+    summary: "Production logistics platform featuring merge-shipment workflows, multi-parameter filtering dashboards, and Sequelize-modeled PostgreSQL relational workflows.",
+    highlights: [
+      "Developed React modules for shipment filtering, merge-shipment workflows, dashboards, and reusable UI components.",
+      "Built and integrated Node.js/Express REST APIs for shipments, companies, points of contact, bookings, and status handling.",
+      "Managed the PostgreSQL database using Sequelize as the ORM, with relational models for shipments, companies, and bookings.",
+      "Collaborated with backend and product teams to fix bugs, refine logic, and deliver production-ready features."
+    ],
+    architecture: [
+      { label: "React + Tailwind", sublabel: "Dashboards & Merge Flows", accent: "cyan" },
+      { label: "Node.js / Express", sublabel: "Shipments & Bookings API", accent: "emerald" },
+      { label: "Sequelize ORM", sublabel: "Relational Domain Models", accent: "amber" },
+      { label: "PostgreSQL", sublabel: "Companies, POCs & Status", accent: "violet" }
+    ],
+    metrics: [
+      { label: "Core Workflows", value: "Merge & Filter" },
+      { label: "Data Layer", value: "PG + Sequelize" },
+      { label: "Team Setup", value: "6-Eng Agile" }
+    ],
+    live: "https://getmovd.com",
+    liveLabel: "getmovd.com",
     featured: true
   },
   {
     id: "blindpak",
-    title: "BlindPak – College Community Platform",
-    subtitle: "Anonymous Student Social Platform",
+    index: "05",
+    title: "BlindPak",
+    tagline: "Anonymous College Community Platform",
+    affiliation: "Live Production Community",
     category: "Full Stack",
-    tech: ["Next.js", "Node.js", "Express", "MongoDB", "Cloudinary", "SHA-256"],
-    description: "A secure, anonymous social platform designed for college students featuring verified email registration without exposing user identity.",
+    tech: ["Next.js", "Node.js", "Express.js", "PostgreSQL", "Cloudinary", "JWT", "SHA-256"],
+    summary: "Privacy-first anonymous student network with OTP verification, SHA-256 email hashing, EXIF metadata stripping, role-based permissions, and a full moderation control center.",
     highlights: [
-      "Built with SHA-256 email hashing, JWT authentication, and automated image EXIF metadata stripping.",
-      "Comprehensive Admin Panel to moderate content, handle user reports, and manage categories.",
-      "Cloudinary integration for secure image uploads and optimized delivery."
+      "Built an anonymous social platform with posting, image sharing, OTP-based authentication, comments, likes, and moderation.",
+      "Implemented JWT authentication, SHA-256 email hashing, image metadata stripping, role-based posting permissions, and secure Cloudinary storage.",
+      "Designed an admin panel for managing users, posts, reports, and platform moderation.",
+      "Implemented Express API with posting, comments, likes, and secure Cloudinary image storage."
     ],
+    architecture: [
+      { label: "Next.js Client", sublabel: "Anonymous Feed & Admin", accent: "cyan" },
+      { label: "OTP + SHA-256", sublabel: "Zero-Knowledge Identity", accent: "violet" },
+      { label: "EXIF Stripper", sublabel: "Cloudinary Media Pipeline", accent: "amber" },
+      { label: "Express + PG", sublabel: "RBAC & Moderation API", accent: "emerald" }
+    ],
+    metrics: [
+      { label: "Identity Privacy", value: "SHA-256 + EXIF Strip" },
+      { label: "Auth Flow", value: "OTP + JWT RBAC" },
+      { label: "Live Domain", value: "Blindpak.com" }
+    ],
+    live: "https://blindpak.com",
+    liveLabel: "Blindpak.com",
     github: "https://github.com/NoorAshna/BlindPak",
     featured: true
-  },
-  {
-    id: "global-office",
-    title: "Global Office Source",
-    subtitle: "Corporate Business Website",
-    category: "Web",
-    tech: ["React", "MERN", "Tailwind CSS", "SEO Optimization"],
-    description: "A sleek, responsive corporate website built for Global Office Source to present company services and attract B2B clients.",
-    highlights: [
-      "Designed modern UI/UX aligned with corporate branding guidelines.",
-      "Integrated dynamic service showcases, interactive contact triggers, and SEO-friendly metadata structure."
-    ],
-    live: "http://www.globalofficesource.com",
-    featured: false
-  },
-  {
-    id: "food-on-wheels",
-    title: "Food on Wheels",
-    subtitle: "Desktop Delivery Management",
-    category: "Backend",
-    tech: ["Java", "JavaFX", "MySQL"],
-    description: "Desktop food delivery system supporting user ordering, rider dispatching, and real-time delivery confirmation flows.",
-    highlights: [
-      "Order workflow tracking: Order Placement → Rider Assignment → Delivery → User Confirmation.",
-      "MySQL relational database structure for order logs and rider availability."
-    ],
-    featured: false
-  },
-  {
-    id: "hostelhero",
-    title: "HostelHero",
-    subtitle: "Hostel Management SaaS",
-    category: "Full Stack",
-    tech: ["MongoDB", "Express.js", "React", "Node.js"],
-    description: "MERN stack management application for university hostels handling room allocations, student registrations, and automated billing.",
-    highlights: [
-      "Role-based administrative dashboard for resident managers and students.",
-      "Drastically improved hostel record retrieval speed over traditional paper/excel methods."
-    ],
-    featured: false
   }
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    category: "Backend & Frameworks",
+    id: "languages",
+    category: "Languages",
+    code: "01 // LANG",
+    description: "Strongly-typed and relational query languages for full-stack & data engineering.",
     items: [
-      { name: "Node.js" },
-      { name: "NestJS" },
-      { name: "Express.js" },
-      { name: "Fastify" },
-      { name: ".NET Core / C#" },
-      { name: "Java / JavaFX" },
+      { name: "JavaScript", usedIn: ["CallLoom", "DocMind", "MOVD", "BlindPak"] },
+      { name: "TypeScript", usedIn: ["CallLoom", "BlindPak", "Mars Digital"] },
+      { name: "SQL", usedIn: ["CallLoom", "DocMind", "MOVD", "BlindPak"] },
+      { name: "Python", usedIn: ["CognizDraw"] }
     ]
   },
   {
-    category: "Frontend & UI",
+    id: "frontend",
+    category: "Frontend",
+    code: "02 // UI",
+    description: "Component-driven interfaces, SSR/App Router workflows, and responsive design.",
     items: [
-      { name: "Next.js (App Router)" },
-      { name: "React.js" },
-      { name: "TypeScript" },
-      { name: "JavaScript (ES6+)" },
-      { name: "Tailwind CSS" },
-      { name: "HTML5 / CSS3" },
+      { name: "React", usedIn: ["CallLoom", "DocMind", "CognizDraw", "MOVD"] },
+      { name: "Next.js", usedIn: ["BlindPak"] },
+      { name: "Tailwind CSS", usedIn: ["MOVD", "BlindPak"] }
     ]
   },
   {
-    category: "Databases & Caching",
+    id: "backend",
+    category: "Backend",
+    code: "03 // CORE",
+    description: "High-throughput REST APIs, modular microservice architectures, and event workers.",
     items: [
-      { name: "PostgreSQL" },
-      { name: "MongoDB" },
-      { name: "SQL Server" },
-      { name: "Redis" },
-      { name: "TypeORM" },
-      { name: "Sequelize" },
+      { name: "Node.js", usedIn: ["CallLoom", "DocMind", "CognizDraw", "MOVD", "BlindPak"] },
+      { name: "NestJS", usedIn: ["CallLoom"] },
+      { name: "Express.js", usedIn: ["DocMind", "MOVD", "BlindPak"] },
+      { name: "Fastify", usedIn: ["CallLoom"] }
     ]
   },
   {
-    category: "DevOps, Tools & APIs",
+    id: "databases",
+    category: "Databases & Data",
+    code: "04 // DATA",
+    description: "Relational modeling, vector similarity storage, caching layers, and ORMs.",
     items: [
-      { name: "Docker" },
-      { name: "CI/CD Pipelines" },
-      { name: "AWS" },
-      { name: "Stripe API" },
-      { name: "Git & GitHub" },
-      { name: "REST APIs" },
+      { name: "PostgreSQL", usedIn: ["CallLoom", "DocMind", "MOVD", "BlindPak"] },
+      { name: "MongoDB", usedIn: ["CognizDraw", "TechFlo"] },
+      { name: "Redis", usedIn: ["CallLoom", "DocMind"] },
+      { name: "pgvector", usedIn: ["DocMind"] },
+      { name: "Sequelize", usedIn: ["CallLoom", "MOVD"] },
+      { name: "TypeORM", usedIn: ["CallLoom"] }
+    ]
+  },
+  {
+    id: "ai-search",
+    category: "AI & Search",
+    code: "05 // AI-RAG",
+    description: "Applied LLM integrations, vector retrieval pipelines, and custom NLP models.",
+    items: [
+      { name: "LLM API Integration", usedIn: ["CallLoom", "DocMind"] },
+      { name: "LangChain", usedIn: ["DocMind"] },
+      { name: "RAG", usedIn: ["DocMind"] },
+      { name: "Embeddings", usedIn: ["DocMind"] },
+      { name: "Semantic Search", usedIn: ["DocMind", "CallLoom"] },
+      { name: "Google Gemini", usedIn: ["DocMind"] },
+      { name: "spaCy & Transformers", usedIn: ["CognizDraw"] }
+    ]
+  },
+  {
+    id: "devops-tools",
+    category: "DevOps & Tools",
+    code: "06 // OPS",
+    description: "Async queues, telephony carriers, payment webhooks, and deployment automation.",
+    items: [
+      { name: "Docker", usedIn: ["CallLoom", "DocMind"] },
+      { name: "CI/CD", usedIn: ["CallLoom", "Mars Digital"] },
+      { name: "AWS", usedIn: ["CallLoom", "Mars Digital"] },
+      { name: "BullMQ", usedIn: ["DocMind"] },
+      { name: "Git/GitHub", usedIn: ["CallLoom", "DocMind", "MOVD", "BlindPak"] },
+      { name: "Stripe API", usedIn: ["Mars Digital"] },
+      { name: "Telnyx", usedIn: ["CallLoom"] },
+      { name: "Twilio", usedIn: ["CallLoom"] }
     ]
   }
 ];
 
 export const EDUCATION = [
   {
-    degree: "BS in Software Engineering",
+    degree: "BS Software Engineering",
     institution: "FAST NUCES Islamabad",
     period: "2020 – 2024",
-    details: "Key Courses: Web Engineering, Database Systems, Design & Analysis of Algorithms, Software Architecture, Software Quality Engineering, Human Computer Interaction."
+    badge: "Bachelor of Science",
+    coursework: [
+      "Web Engineering",
+      "Computer Networks",
+      "Database Systems",
+      "Algorithms",
+      "OOP",
+      "Operating Systems",
+      "Software Architecture",
+      "Software Quality Engineering"
+    ]
   },
   {
-    degree: "FSc Inter Computer Science",
-    institution: "Government College University Lahore (GCU)",
+    degree: "Intermediate Computer Science",
+    institution: "Government College University Lahore",
     period: "2018 – 2020",
-    details: "Computer Science, Mathematics, Physics."
+    badge: "Pre-Engineering & CS",
+    coursework: [
+      "Computer Science",
+      "Mathematics",
+      "Physics"
+    ]
   }
 ];
 
 export const LANGUAGES = [
-  { name: "English", level: "Fluent" },
-  { name: "Urdu", level: "Native" },
-  { name: "Pashto", level: "Native" },
-  { name: "German", level: "A2 Elementary" },
+  { name: "Urdu", level: "Native", greeting: "اسلام علیکم — خوش آمدید", code: "UR" },
+  { name: "English", level: "Fluent", greeting: "Hello — let's build together", code: "EN" },
+  { name: "German", level: "A2", greeting: "Hallo — willkommen auf meinem Portfolio", code: "DE" }
 ];
